@@ -12,7 +12,7 @@ $lastName = 'Apanasiuk';
 $text2 = "lastName : {$lastName}" . "\n";
 
 $location = 'Kharkiv, Ukraine';
-$text3 = "location : {$firstName}" . "\n";
+$text3 = "location : {$location}" . "\n";
 
 $occupaion = 'student';
 $text4 = "firstName : {$occupaion}" . "\n";
