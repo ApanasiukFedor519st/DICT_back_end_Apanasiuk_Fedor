@@ -1,18 +1,14 @@
 <?php
-// !!! TODO 1: ваш код обробки GET запиту; виконання запиту через cURL у пошукову систему; підготовка даних для малювання
 if(isset($_GET["search"])) {
     $search = htmlspecialchars($_GET["search"]);
     $apiKey = "AIzaSyBEJSsTf6kqIZEJKDyW57FmvHQ7izu_odA";
     $cx = "82ff5515af1a74e8a";
     $url = "https://www.googleapis.com/customsearch/v1?key=$apiKey&cx=$cx&q=$search";
-    //$url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBogcfQoq-E1oLIFs-p1-vappmjvn5VDW8&cx=a020f95a47709428a&q=blablabla";
-    // Инициализация нового сеанса cURL
-    $ch = curl_init(); // открыть сеанс cURL
-    curl_setopt($ch, CURLOPT_URL, $url); // установить параметр $url
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // вернуть ответ в строку
-    $resultJson = curl_exec($ch); // выполнить запрос
-    curl_close($ch); // закрыть сеанс cURL
-
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $resultJson = curl_exec($ch);
+    curl_close($ch);
     $items = json_decode($resultJson, true)["items"];
 }
 ?>
@@ -30,7 +26,6 @@ if(isset($_GET["search"])) {
     <input type="submit" value="Submit">
 </ form >
 <?php
-// !!! TODO 2: код відображення відповіді
 if(!empty($items)) {
     foreach ($items as $item) {
         echo "<p>".$item['title']."</p>";
