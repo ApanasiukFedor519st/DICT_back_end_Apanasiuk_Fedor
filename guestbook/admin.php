@@ -15,11 +15,11 @@ if (empty($_SESSION['auth'])) {
 
 <div class="container">
 
-    <!-- navbar menu -->
+
     <?php require_once 'sectionNavbar.php' ?>
     <br>
 
-    <!-- guestbook section -->
+
     <div class="card card-primary">
         <div class="card-header bg-warning text-light">
             Admin
